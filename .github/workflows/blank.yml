@@ -2,14 +2,14 @@ name: My Workflow
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
       - name: Get tag name
-        #        run: echo "Tag name is ${{ github.ref }}|sed 's/v//'"
-        run: echo "Tag name is ${{ github.ref | awk -F/ '{sub(/^v/, "", $NF); print $NF}' }}"
+        run: echo "Tag name is ${{ github.ref }}"
+        
 
