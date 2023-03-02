@@ -10,6 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get tag name
-        run: echo "Tag name is ${{ github.ref }}"
-        
-
+        run: echo "Tag name is ${{ github.ref | awk -F/ '{print $NF}' }}"
